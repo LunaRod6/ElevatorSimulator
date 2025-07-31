@@ -8,9 +8,11 @@ int main() {
 
 	std::vector<elevator> elevators (startingInfo()); //Ask the user how many elevators and creates a list
 	
-	assignLimits(elevators);
+	assignLimits(elevators); 
 
 	drawMap(elevators , elevators.at(0).getNumFloors());
+
+	controller(elevators);
 
 	return 0;
 }

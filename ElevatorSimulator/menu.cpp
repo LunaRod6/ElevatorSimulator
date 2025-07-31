@@ -35,20 +35,22 @@ int startingInfo() { //Returns the number of elevators
 
 }
 
- void drawMap(std::vector<elevator>& currElev , int floors) {
+ void drawMap(std::vector<elevator>& building , int floors) {
 
-	 for (unsigned int i = floors ; i > 0 ; --i) {
+	  
+
+	 for (int i = floors; i > 0; --i) {
 	 
-		 for (unsigned int j = 0; j < currElev.size() ; ++j) {
+		 for (unsigned int j = 0; j < building.size() ; ++j) {
 
 			 //Checks if the elevator is in use and is open
-			 if ((currElev.at(j).getFloor() == i) && (currElev.at(j).getStatus() == "open") {
+			 if ( (building.at(j).getFloor() == i) && (building.at(j).getStatus() == "open")) {
 
-				 std::cout << " [0] ";
+				 std::cout << " [open] ";
 
 			 } else {
 
-				 std::cout << " [!] ";
+				 std::cout << " [close] ";
 
 			 }
 
@@ -60,7 +62,7 @@ int startingInfo() { //Returns the number of elevators
 
  }
 
- void controller(std::vector<elevator>& currElev) {
+ void controller(std::vector<elevator>& building) {
 
 	 std::string action;
 	 int choice;
@@ -75,12 +77,13 @@ int startingInfo() { //Returns the number of elevators
 
 			 std::cout << "What action do you want to perform? " << std::endl;
 
+			 
 			 //FIXME displayMenu();
 			 // floor -> elevator -> status -> move elevator
-
+			 operations(building);
 		 }
 
-	 } while (action != "n")
+	 } while (action != "n");
 
  }
 
