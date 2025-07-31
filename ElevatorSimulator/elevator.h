@@ -17,12 +17,15 @@ public:
 	void setButtonDown(bool val);
 	void setCall(bool val);
 	void setNumFloors(int num);
+	void setDoorStatus(std::string status);
 
 	int getFloor() const; //Getters
+	int getNumFloors() const;
 	double getWeight() const;
 	bool getButtonUp() const;
 	bool getButtonDown() const;
 	bool getCall() const;
+	std::string getStatus() const;
 
 private:
 

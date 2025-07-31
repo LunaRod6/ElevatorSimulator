@@ -26,9 +26,21 @@ int elevator::getFloor() const {
 
 }
 
+int elevator::getNumFloors() const {
+
+	return this->numFloors;
+
+}
+
 void elevator::setWeight(double num) {
 
 	this->weightLimit = num;
+
+}
+
+void elevator::setDoorStatus(std::string status) {
+
+	this->doorStatus = status;
 
 }
 
@@ -76,5 +88,11 @@ bool elevator::getCall() const {
 void elevator::setNumFloors(int num) {
 
 	this->numFloors = num;
+
+}
+
+std::string elevator::getStatus() const {
+
+	return this->doorStatus;
 
 }
