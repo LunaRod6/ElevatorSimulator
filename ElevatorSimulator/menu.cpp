@@ -11,19 +11,24 @@ int startingInfo() { //Returns the number of elevators
 	
 }
 
-elevator createBuilding() { //Creates an object with the floor limits
+ void assignLimits(std::vector<elevator>& currElev) { //Assigns the floor limits
 
 	int totalFloors;
 	double weight;
+	
+
 	std::cout << "How many floors does your building has?" << std::endl;
 	std::cin >> totalFloors;
-
 	std::cout << "What weight will your elevators support?" << std::endl;
 	std::cin >> weight;
 
-	elevator elevator1(totalFloors, weight);
+	for (unsigned int i = 0; i < currElev.size(); ++i) {
 
-	return elevator1;
+		currElev.at(i).setNumFloors(totalFloors);
+		currElev.at(i).setWeight(weight);
+
+	}
+
 
 }
 

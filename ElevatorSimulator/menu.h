@@ -5,6 +5,6 @@
 #include "elevator.h" //Uses the elevator header
 
 int startingInfo(); //Ask the user the number of elevators to create
-elevator createBuilding(); //Ask the user the number of floors and weight limit
+void assignLimits(std::vector<elevator>& currElev); //Creates the limits for the elevators
 
 #endif // !MENU_H

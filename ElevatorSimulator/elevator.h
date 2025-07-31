@@ -9,13 +9,14 @@ class elevator {
 
 public:
 
-	elevator(int numFloors , double weightLimit); //Constructor
+	elevator(); //Default Constructor
 	
 	void setFloor(int num); // Setters
 	void setWeight(double num);
 	void setButtonUp(bool val);
 	void setButtonDown(bool val);
 	void setCall(bool val);
+	void setNumFloors(int num);
 
 	int getFloor() const; //Getters
 	double getWeight() const;

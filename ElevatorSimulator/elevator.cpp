@@ -2,15 +2,15 @@
 
 
 
-elevator::elevator(int numFloors, double weightLimit) {
+elevator::elevator() {
 
 	this->floor = 1;
+	this->numFloors = 2;
 	this->buttonDown = false;
 	this->buttonUp = false;
 	this->doorStatus = "close";
 	this->callElevator = false;
-	this->numFloors = numFloors;
-	this->weightLimit = weightLimit;
+	this->weightLimit = 0.0;
 
 }
 
@@ -70,5 +70,11 @@ void elevator::setCall(bool val) {
 bool elevator::getCall() const {
 
 	return this->callElevator;
+
+}
+
+void elevator::setNumFloors(int num) {
+
+	this->numFloors = num;
 
 }
