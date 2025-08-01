@@ -15,7 +15,6 @@ public:
 	void setWeight(double num);
 	void setButtonUp(bool val);
 	void setButtonDown(bool val);
-	void setCall(bool val);
 	void setNumFloors(int num);
 	void setDoorStatus(std::string status);
 
@@ -24,7 +23,6 @@ public:
 	double getWeight() const;
 	bool getButtonUp() const;
 	bool getButtonDown() const;
-	bool getCall() const;
 	std::string getStatus() const;
 
 private:
@@ -32,7 +30,7 @@ private:
 	int floor , numFloors;
 	double weightLimit;
 	std::string doorStatus;
-	bool buttonUp, buttonDown , callElevator;
+	bool buttonUp, buttonDown;
 };
 
 #endif // !ELEVATOR_H

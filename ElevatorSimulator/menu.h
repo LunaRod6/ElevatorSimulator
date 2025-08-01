@@ -8,7 +8,7 @@
 #include "algorithm.h"
 
 int startingInfo(); //Ask the user the number of elevators to create
-void assignLimits(std::vector<elevator>& currElev); //Creates the limits for the elevators
-void drawMap(std::vector<elevator>& currElev , int floors); //Draws the building 
+void drawMap(std::vector<elevator>& building, int floors); //Draws the building 
+void assignLimits(std::vector<elevator>& building); //Creates the limits for the elevators
 void controller(std::vector<elevator>& building); //Lets the user choose what to do next
 #endif // !MENU_H

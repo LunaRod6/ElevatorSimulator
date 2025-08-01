@@ -1,4 +1,4 @@
-#include "menu.h"
+﻿#include "menu.h"
 
 
 
@@ -13,7 +13,48 @@ int startingInfo() { //Returns the number of elevators
 	
 }
 
- void assignLimits(std::vector<elevator>& currElev) { //Assigns the floor limits
+void drawMap(std::vector<elevator>& building, int floors) { //Displays the contents of the building
+
+	char symbol;
+	std::cout << std::endl;
+
+	for (int i = floors; i > 0; --i) {
+
+		std::cout << std::left << std::setw(7) << "Floor: " << i << "  ";
+
+		for (unsigned int j = 0; j < building.size(); ++j) {
+
+			//Checks if the elevator is in use and is open
+			if ((building.at(j).getFloor() == i) && (building.at(j).getStatus() == "open")) {
+
+				std::cout << " [ ] ";
+
+			}
+			else if ((building.at(j).getFloor() == i) && (building.at(j).getButtonUp() == true)) {
+
+				std::cout << " [^] ";
+			}
+			else if ((building.at(j).getFloor() == i) && (building.at(j).getButtonDown() == true)) {
+
+				std::cout << " [v] ";
+			}
+			else {
+
+				std::cout << " [" << j + 1 << "] ";
+
+			}
+
+		}
+
+		std::cout << std::endl << std::endl;
+
+
+
+	}
+
+}
+
+ void assignLimits(std::vector<elevator>& building) { //Assigns the floor limits
 
 	int totalFloors;
 	double weight;
@@ -21,51 +62,25 @@ int startingInfo() { //Returns the number of elevators
 
 	std::cout << "How many floors does your building has?" << std::endl;
 	std::cin >> totalFloors;
-	std::cout << "What weight will your elevators support?" << std::endl;
+	std::cout << "What weight will your elevators support in kg?" << std::endl;
 	std::cin >> weight;
 	system("cls");
 
-	for (unsigned int i = 0; i < currElev.size(); ++i) {
+	for (unsigned int i = 0; i < building.size(); ++i) {
 
-		currElev.at(i).setNumFloors(totalFloors);
-		currElev.at(i).setWeight(weight);
+		building.at(i).setNumFloors(totalFloors);
+		building.at(i).setWeight(weight);
 
 	}
+
+	drawMap(building, building.at(0).getNumFloors());
 
 
 }
 
- void drawMap(std::vector<elevator>& building , int floors) {
-
-	  
-
-	 for (int i = floors; i > 0; --i) {
-	 
-		 for (unsigned int j = 0; j < building.size() ; ++j) {
-
-			 //Checks if the elevator is in use and is open
-			 if ( (building.at(j).getFloor() == i) && (building.at(j).getStatus() == "open")) {
-
-				 std::cout << " [open] ";
-
-			 } else {
-
-				 std::cout << " [close] ";
-
-			 }
-
-		 }
-
-		 std::cout << std::endl << std::endl;
-
-	 }
-
- }
-
- void controller(std::vector<elevator>& building) {
+ void controller(std::vector<elevator>& building) { //Allows the user to interact with the elevators.
 
 	 std::string action;
-	 int choice;
 
 	 do {
 
@@ -75,17 +90,9 @@ int startingInfo() { //Returns the number of elevators
 
 		 if (action == "y") {
 
-			 std::cout << "What action do you want to perform? " << std::endl;
-
-			 
-			 //FIXME displayMenu();
-			 // floor -> elevator -> status -> move elevator
 			 operations(building);
 		 }
 
 	 } while (action != "n");
 
  }
-
-
-
